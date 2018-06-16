@@ -20,8 +20,17 @@ environment:
       PYTHON_VERSION: "2.7.x"
       PYTHON_ARCH: "32"
 
+    - PYTHON: "C:\\Python26"
+      PYTHON_VERSION: "2.6.x"
+      PYTHON_ARCH: "32"
+
     - PYTHON: "C:\\Python34"
       PYTHON_VERSION: "3.4.x"
+      PYTHON_ARCH: "32"
+
+
+    - PYTHON: "C:\\Python33"
+      PYTHON_VERSION: "3.3.x"
       PYTHON_ARCH: "32"
 
     - PYTHON: "C:\\Python35"
@@ -33,9 +42,17 @@ environment:
       PYTHON_ARCH: "32"
 
     # 64 bits
+    - PYTHON: "C:\\Python26-x64"
+      PYTHON_VERSION: "2.6.x"
+      PYTHON_ARCH: "64"
+
 
     - PYTHON: "C:\\Python27-x64"
       PYTHON_VERSION: "2.7.x"
+      PYTHON_ARCH: "64"
+
+    - PYTHON: "C:\\Python33"
+      PYTHON_VERSION: "3.3.x"
       PYTHON_ARCH: "64"
 
     - PYTHON: "C:\\Python34-x64"
