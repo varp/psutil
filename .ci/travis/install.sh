@@ -3,6 +3,7 @@
 set -e
 set -x
 
+echo "+ CURRENT BUILD PATH == $(pwd)"
 uname -a
 python -c "import sys; print(sys.version)"
 
@@ -16,10 +17,10 @@ if [[ "$(uname -s)" == 'Darwin' ]]; then
     fi
 
     case "${PYVER}" in
-        py26)
-            pyenv install 2.6.9
-            pyenv virtualenv 2.6.9 psutil
-            ;;
+#        py26)
+#            pyenv install 2.6.9
+#            pyenv virtualenv 2.6.9 psutil
+#            ;;
         py27)
             pyenv install 2.7.10
             pyenv virtualenv 2.7.10 psutil

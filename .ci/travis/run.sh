@@ -14,6 +14,8 @@ if [[ "$(uname -s)" == 'Darwin' ]]; then
 fi
 
 # install psutil
+echo "+ CURRENT BUILD PATH == $(pwd)"
+
 make clean
 python setup.py build
 python setup.py develop
