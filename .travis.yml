@@ -4,12 +4,13 @@ dist: trusty
 addons:
   artifacts: true
 
-#language: python
-#cache: pip
+language: python
+cache: pip
 matrix:
   include:
     # Linux
     - python: 3.3
+      os: linux
       env: PYVER=py33
 
 
