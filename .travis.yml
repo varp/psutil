@@ -2,7 +2,7 @@ addons:
   artifacts: true
 
 sudo: required
-dist: precise
+dist: trusty
 
 language: python
 cache: pip
