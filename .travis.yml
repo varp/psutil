@@ -1,7 +1,9 @@
 addons:
   artifacts: true
 
-sudo: require
+sudo: required
+dist: precise
+
 language: python
 cache: pip
 matrix:
