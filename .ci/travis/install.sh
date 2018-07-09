@@ -21,7 +21,6 @@ if [[ "$(uname -s)" == 'Linux' ]]; then
 
     rm -rf /opt/pyenv/plugins/pyenv-virtualenv || true
     curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-    git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 fi
 
 
