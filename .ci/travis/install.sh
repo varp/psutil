@@ -11,32 +11,32 @@ if [[ "$(uname -s)" == 'Darwin' ]]; then
     brew update || brew update
     brew outdated pyenv || brew upgrade pyenv
     brew install pyenv-virtualenv
-
-    if which pyenv > /dev/null; then
-        eval "$(pyenv init -)"
-    fi
-
-    case "${PYVER}" in
-#        py26)
-#            pyenv install 2.6.9
-#            pyenv virtualenv 2.6.9 psutil
-#            ;;
-        py27)
-            pyenv install 2.7.10
-            pyenv virtualenv 2.7.10 psutil
-            ;;
-        py33)
-            pyenv install 3.3.6
-            pyenv virtualenv 3.3.6 psutil
-            ;;
-        py34)
-            pyenv install 3.4.3
-            pyenv virtualenv 3.4.3 psutil
-            ;;
-    esac
-    pyenv rehash
-    pyenv activate psutil
 fi
+
+if [[ "$(uname -s)" == 'Linux' ]]; then
+    sudo dpkg --add-architecture i386
+    sudo apt-get update
+    sudo apt-get install -y git-core build-essential pbuilder autoconf
+    sudo apt-get install -y build-essential:i386
+
+    curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+    git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+fi
+
+
+if which pyenv > /dev/null; then
+    eval "$(pyenv init -)"
+fi
+
+case "${PYVER}" in
+    py33)
+        pyenv install 3.3.6
+        pyenv virtualenv 3.3.6 psutil
+        ;;
+esac
+pyenv rehash
+pyenv activate psutil
+
 
 if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]] || [[ $PYVER == 'py26' ]]; then
     pip install -U ipaddress unittest2 argparse mock==1.0.1

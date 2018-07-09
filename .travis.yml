@@ -1,20 +1,21 @@
+sudo: enabled
+dist: trusty
+
 addons:
   artifacts: true
-
-sudo: required
-dist: trusty
 
 language: python
 cache: pip
 matrix:
-    include:
-        # Linux
-        - python: 3.3
-        # OSX
+  include:
+    # Linux
+    - python: 3.3
 
-        - language: generic
-          os: osx
-          env: PYVER=py33
+
+    # OSX
+    - language: generic
+      os: osx
+      env: PYVER=py33
 install:
     - ./.ci/travis/install.sh
 script:

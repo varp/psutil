@@ -6,12 +6,10 @@ set -x
 PYVER=`python -c 'import sys; print(".".join(map(str, sys.version_info[:2])))'`
 
 # setup OSX
-if [[ "$(uname -s)" == 'Darwin' ]]; then
-    if which pyenv > /dev/null; then
-        eval "$(pyenv init -)"
-    fi
-    pyenv activate psutil
+if which pyenv > /dev/null; then
+    eval "$(pyenv init -)"
 fi
+pyenv activate psutil
 
 # install psutil
 echo "+ CURRENT BUILD PATH == $(pwd)"
