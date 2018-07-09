@@ -19,6 +19,7 @@ if [[ "$(uname -s)" == 'Linux' ]]; then
     sudo apt-get install -y git-core build-essential pbuilder autoconf
 #    sudo apt-get install -y build-essential:i386
 
+    rm -rf /opt/pyenv/plugins/pyenv-virtualenv || true
     curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
     git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 fi
