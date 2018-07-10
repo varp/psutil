@@ -38,6 +38,7 @@ esac
 pyenv rehash
 pyenv activate psutil
 
+python -m pip install --upgrade pip
 
 if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]] || [[ $PYVER == 'py26' ]]; then
     pip install -U ipaddress unittest2 argparse mock==1.0.1
