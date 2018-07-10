@@ -9,14 +9,20 @@ PYVER=`python -c 'import sys; print(".".join(map(str, sys.version_info[:2])))'`
 if which pyenv > /dev/null; then
     eval "$(pyenv init -)"
 fi
-pyenv activate psutil
 
 # install psutil
 echo "+ CURRENT BUILD PATH == $(pwd)"
 
+
+pyenv global 3.3.6
+pyenv activate psutil
+
 make clean
 python setup.py build
 python setup.py develop
+
+pip install -e .
+
 
 # run tests (with coverage)
 if [[ $PYVER == '2.7' ]] && [[ "$(uname -s)" != 'Darwin' ]]; then
