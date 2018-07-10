@@ -14,14 +14,18 @@ fi
 echo "+ CURRENT BUILD PATH == $(pwd)"
 
 
-pyenv global 3.3.6
 pyenv activate psutil
 
 make clean
 python setup.py build
 python setup.py develop
 
+pyenv global 3.3.6 && pyenv rehash
 pip install -e .
+
+
+which python
+python -c 'import sys; print(sys.executable)'
 
 
 # run tests (with coverage)
