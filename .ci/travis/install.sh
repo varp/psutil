@@ -45,4 +45,4 @@ elif [[ $TRAVIS_PYTHON_VERSION == '2.7' ]] || [[ $PYVER == 'py27' ]]; then
     pip install -U ipaddress mock
 fi
 
-pip install -U coverage coveralls flake8 pep8 setuptools
+pip install -U tox coverage coveralls flake8 pep8 setuptools
