@@ -40,6 +40,8 @@ pyenv activate psutil
 
 python -m pip install --upgrade pip
 
+pyenv global 3.3.6
+
 if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]] || [[ $PYVER == 'py26' ]]; then
     pip install -U ipaddress unittest2 argparse mock==1.0.1
 elif [[ $TRAVIS_PYTHON_VERSION == '2.7' ]] || [[ $PYVER == 'py27' ]]; then
