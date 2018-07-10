@@ -23,9 +23,12 @@ python setup.py develop
 pyenv global 3.3.6 && pyenv rehash
 pip install -e .
 
-
+##
+echo "===> Python version information <==="
+echo $PATH
 which python
 python -c 'import sys; print(sys.executable)'
+python -c 'import sys; print(sys.version)'
 
 
 # run tests (with coverage)
