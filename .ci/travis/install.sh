@@ -16,8 +16,8 @@ fi
 if [[ "$(uname -s)" == 'Linux' ]]; then
     sudo dpkg --add-architecture i386
     sudo apt-get update
-    sudo apt-get install -y git-core build-essential pbuilder autoconf
-#    sudo apt-get install -y build-essential:i386
+    sudo apt-get install -y git-core gcc gcc-multilib autoconf make
+    sudo apt-get purge -y python-virtualenv
 
     rm -rf /opt/pyenv/plugins/pyenv-virtualenv || true
     curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
