@@ -31,7 +31,7 @@ fi
 
 case "${PYVER}" in
     py33)
-        pyenv install -f 3.3.6
+        pyenv install -s 3.3.6
         pyenv virtualenv 3.3.6 psutil
         ;;
 esac
