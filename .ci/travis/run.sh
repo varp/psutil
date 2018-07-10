@@ -11,24 +11,23 @@ if which pyenv > /dev/null; then
 fi
 
 # install psutil
-echo "+ CURRENT BUILD PATH == $(pwd)"
 
-
+# ensure that Python is used from pyenv
+pyenv global 3.3.6 && pyenv rehash
 pyenv activate psutil
 
 make clean
 python setup.py build
 python setup.py develop
+python setup.py install
 
-pyenv global 3.3.6 && pyenv rehash
-pip install -e .
 
 ##
-echo "===> Python version information <==="
-echo $PATH
-which python
-python -c 'import sys; print(sys.executable)'
-python -c 'import sys; print(sys.version)'
+echo "===> CURRENT BUILD PATH <==="
+echo $PWD
+
+echo "===> PYTHON SYS INFO <==="
+python -c 'import sys; print(sys.executable); print(sys.version)'
 
 
 # run tests (with coverage)
