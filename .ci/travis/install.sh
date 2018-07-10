@@ -16,7 +16,8 @@ fi
 if [[ "$(uname -s)" == 'Linux' ]]; then
     sudo dpkg --add-architecture i386
     sudo apt-get update
-    sudo apt-get install -y git-core gcc gcc-multilib autoconf make
+    sudo apt-get install -y git-core gcc-multilib make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev \
+        libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev
     sudo apt-get purge -y python-virtualenv
 
     rm -rf /opt/pyenv/plugins/pyenv-virtualenv || true
@@ -30,7 +31,7 @@ fi
 
 case "${PYVER}" in
     py33)
-        pyenv install 3.3.6
+        pyenv install -f 3.3.6
         pyenv virtualenv 3.3.6 psutil
         ;;
 esac
