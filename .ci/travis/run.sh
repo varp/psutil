@@ -27,28 +27,28 @@ python setup.py install
 
 
 ## Python and env debug
-if [[ "$(uname -s)" == "Linux" ]]; then
-    echo $PWD
-    which python
-    python -c 'import sys; print(sys.executable); print(sys.version)'
-    update-alternatives --display python || true
-    dpkg --get-selections | grep python
-    id
-fi
+#if [[ "$(uname -s)" == "Linux" ]]; then
+#    echo $PWD
+#    which python
+#    python -c 'import sys; print(sys.executable); print(sys.version)'
+#    update-alternatives --display python || true
+#    dpkg --get-selections | grep python
+#    id
+#fi
 ##
 
 # run tests (with coverage)
-#if [[ $PYVER == '2.7' ]] && [[ "$(uname -s)" != 'Darwin' ]]; then
-#    PSUTIL_TESTING=1 python -Wa -m coverage run psutil/tests/__main__.py
-#else
-#    PSUTIL_TESTING=1 python -Wa psutil/tests/__main__.py
-#fi
-#
-#if [ "$PYVER" == "2.7" ] || [ "$PYVER" == "3.6" ]; then
-#    # run mem leaks test
-#    PSUTIL_TESTING=1 python -Wa psutil/tests/test_memory_leaks.py
-#    # run linter (on Linux only)
-#    if [[ "$(uname -s)" != 'Darwin' ]]; then
-#        python -m flake8
-#    fi
-#fi
+if [[ $PYVER == '2.7' ]] && [[ "$(uname -s)" != 'Darwin' ]]; then
+    PSUTIL_TESTING=1 python -Wa -m coverage run psutil/tests/__main__.py
+else
+    PSUTIL_TESTING=1 python -Wa psutil/tests/__main__.py
+fi
+
+if [ "$PYVER" == "2.7" ] || [ "$PYVER" == "3.6" ]; then
+    # run mem leaks test
+    PSUTIL_TESTING=1 python -Wa psutil/tests/test_memory_leaks.py
+    # run linter (on Linux only)
+    if [[ "$(uname -s)" != 'Darwin' ]]; then
+        python -m flake8
+    fi
+fi
