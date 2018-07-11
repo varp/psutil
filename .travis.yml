@@ -6,9 +6,11 @@ addons:
 
 matrix:
   include:
-    - language: generic
+    - language: python
+      python: 3.3
       os: linux
       env: PYVER=py33
+
 
     # OSX
     - language: generic

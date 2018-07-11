@@ -5,13 +5,15 @@ set -x
 
 PYVER=`python -c 'import sys; print(".".join(map(str, sys.version_info[:2])))'`
 
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
 # setup OSX
 if which pyenv > /dev/null; then
     eval "$(pyenv init -)"
 fi
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 
 # ensure that Python is used from pyenv
 pyenv global 3.3.6 && pyenv rehash
