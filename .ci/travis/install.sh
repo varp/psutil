@@ -3,9 +3,8 @@
 set -e
 set -x
 
-echo "+ CURRENT BUILD PATH == $(pwd)"
-uname -a
-python -c "import sys; print(sys.version)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 if [[ "$(uname -s)" == 'Darwin' ]]; then
     brew update || brew update
@@ -24,25 +23,24 @@ if [[ "$(uname -s)" == 'Linux' ]]; then
     curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 fi
 
-
 if which pyenv > /dev/null; then
     eval "$(pyenv init -)"
 fi
 
 case "${PYVER}" in
     py33)
-        sudo pyenv install -f 3.3.6
-        sudo pyenv virtualenv 3.3.6 psutil
+        pyenv install -f 3.3.6
+        pyenv virtualenv 3.3.6 psutil
         ;;
 esac
-sudo pyenv rehash
-sudo pyenv activate psutil
-sudo pyenv global 3.3.6
+pyenv rehash
+pyenv activate psutil
+pyenv global 3.3.6
 
 if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]] || [[ $PYVER == 'py26' ]]; then
-    sudo pip install -U ipaddress unittest2 argparse mock==1.0.1
+    pip install -U ipaddress unittest2 argparse mock==1.0.1
 elif [[ $TRAVIS_PYTHON_VERSION == '2.7' ]] || [[ $PYVER == 'py27' ]]; then
-    sudo pip install -U ipaddress mock
+    pip install -U ipaddress mock
 fi
 
-sudo pip install -U tox coverage coveralls flake8 pep8 setuptools
+pip install -U tox coverage coveralls flake8 pep8 setuptools
