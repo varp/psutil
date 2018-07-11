@@ -37,9 +37,6 @@ case "${PYVER}" in
 esac
 pyenv rehash
 pyenv activate psutil
-
-python -m pip install --upgrade pip
-
 pyenv global 3.3.6
 
 if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]] || [[ $PYVER == 'py26' ]]; then

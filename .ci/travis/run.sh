@@ -18,6 +18,7 @@ pyenv activate psutil
 make clean
 python setup.py build
 python setup.py develop
+pyhton setup.py sdist bdist_wheel
 python setup.py install
 
 
