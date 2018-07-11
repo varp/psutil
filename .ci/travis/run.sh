@@ -13,10 +13,11 @@ PYVER=`python -c 'import sys; print(".".join(map(str, sys.version_info[:2])))'`
 if which pyenv > /dev/null; then
     eval "$(pyenv init -)"
 fi
-
+exec "$SHELL"
 
 # ensure that Python is used from pyenv
-pyenv global 3.3.6 && pyenv rehash
+pyenv rehash
+pyenv global 3.3.6
 pyenv activate psutil
 
 make clean

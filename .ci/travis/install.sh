@@ -21,11 +21,15 @@ if [[ "$(uname -s)" == 'Linux' ]]; then
 
     rm -rf /opt/pyenv/plugins/pyenv-virtualenv || true
     curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+    echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
 fi
 
 if which pyenv > /dev/null; then
     eval "$(pyenv init -)"
 fi
+exec "$SHELL"
+
 
 case "${PYVER}" in
     py33)
