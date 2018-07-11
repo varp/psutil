@@ -10,11 +10,14 @@ if which pyenv > /dev/null; then
     eval "$(pyenv init -)"
 fi
 
-# install psutil
 
 # ensure that Python is used from pyenv
 pyenv global 3.3.6 && pyenv rehash
 pyenv activate psutil
+
+# install psutil
+pip install psutil
+pip3 install psutil
 
 make clean
 python setup.py build
@@ -23,12 +26,14 @@ python setup.py install
 
 
 ## Python and env debug
-echo $PWD
-which python
-python -c 'import sys; print(sys.executable); print(sys.version)'
-#update-alternatives --display python || true
-#dpkg --get-selections | grep python
-#id
+if [[ "$(uname -s)" == "Linux" ]]; then
+    echo $PWD
+    which python
+    python -c 'import sys; print(sys.executable); print(sys.version)'
+    update-alternatives --display python || true
+    dpkg --get-selections | grep python
+    id
+fi
 ##
 
 # run tests (with coverage)

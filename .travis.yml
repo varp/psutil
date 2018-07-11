@@ -1,17 +1,17 @@
-sudo: false
-#dist: trusty
+sudo: required
+dist: trusty
 
 addons:
   artifacts: true
 
-language: generic
+language: python
+python:
+  - "3.3"
+
 matrix:
   include:
-    # Linux
-#    - language: generic
-#      os: linux
-#      env: PYVER=py33
     - python: 3.3
+      env: PYVER=py33
 
 
     # OSX
