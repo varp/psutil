@@ -22,7 +22,7 @@ pyenv activate psutil
 make clean
 
 if [[ $ARCH == "32" ]]; then
-    BASECFLAGS=-m32 LDFLAGS=-m32 CFLAGS=-m32 python setup.py build
+    BASECFLAGS="-m32 -march=i686" LDFLAGS="-m32 -march=i686" CFLAGS="-m32 -march=i686" python setup.py build
 else
     python setup.py build
 fi
