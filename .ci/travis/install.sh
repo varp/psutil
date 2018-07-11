@@ -28,7 +28,6 @@ fi
 if which pyenv > /dev/null; then
     eval "$(pyenv init -)"
 fi
-exec "$SHELL"
 
 
 case "${PYVER}" in
