@@ -19,6 +19,7 @@ echo "+ CURRENT BUILD PATH == $(pwd)"
 make clean
 python setup.py build
 python setup.py develop
+python setup.py sdist bdist_wheel
 
 # run tests (with coverage)
 if [[ $PYVER == '2.7' ]] && [[ "$(uname -s)" != 'Darwin' ]]; then
