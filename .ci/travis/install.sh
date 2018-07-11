@@ -17,6 +17,13 @@ if [[ "$(uname -s)" == 'Linux' ]]; then
     sudo apt-get update
     sudo apt-get install -y git-core gcc-multilib make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev \
         libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev
+
+    gcc -v
+
+    if [[ $ARCH == "32" ]]; then
+        sudo apt-get install -y build-essential:i386
+        gcc -v
+    fi
     sudo apt-get purge -y python-virtualenv
 
     rm -rf /opt/pyenv/plugins/pyenv-virtualenv || true
