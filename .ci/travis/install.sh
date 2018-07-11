@@ -31,18 +31,18 @@ fi
 
 case "${PYVER}" in
     py33)
-        pyenv install -f 3.3.6
-        pyenv virtualenv 3.3.6 psutil
+        sudo pyenv install -f 3.3.6
+        sudo pyenv virtualenv 3.3.6 psutil
         ;;
 esac
-pyenv rehash
-pyenv activate psutil
-pyenv global 3.3.6
+sudo pyenv rehash
+sudo pyenv activate psutil
+sudo pyenv global 3.3.6
 
 if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]] || [[ $PYVER == 'py26' ]]; then
-    pip install -U ipaddress unittest2 argparse mock==1.0.1
+    sudo pip install -U ipaddress unittest2 argparse mock==1.0.1
 elif [[ $TRAVIS_PYTHON_VERSION == '2.7' ]] || [[ $PYVER == 'py27' ]]; then
-    pip install -U ipaddress mock
+    sudo pip install -U ipaddress mock
 fi
 
-pip install -U tox coverage coveralls flake8 pep8 setuptools
+sudo pip install -U tox coverage coveralls flake8 pep8 setuptools

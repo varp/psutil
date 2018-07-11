@@ -4,15 +4,11 @@ dist: trusty
 addons:
   artifacts: true
 
-language: python
-python:
-  - "3.3"
-
 matrix:
   include:
-    - python: 3.3
+    - language: generic
+      os: linux
       env: PYVER=py33
-
 
     # OSX
     - language: generic
