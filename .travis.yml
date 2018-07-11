@@ -9,8 +9,15 @@ matrix:
     - language: python
       python: 3.3
       os: linux
-      env: PYVER=py33
+      env:
+        - "PYVER=py33"
 
+    - language: python
+      python: 3.3
+      os: linux
+      env:
+        - "PYVER=py33"
+        - "ARCH=32"
 
     # OSX
     - language: generic

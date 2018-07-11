@@ -20,7 +20,13 @@ pyenv global 3.3.6
 pyenv activate psutil
 
 make clean
-python setup.py build
+
+if [[ $ARCH == "32" ]]; then
+    BASECFLAGS=-m32 LDFLAGS=-m32 CFLAGS=-m32 python setup.py build
+else
+    python setup.py build
+fi
+
 python setup.py develop
 python setup.py sdist bdist_wheel
 python setup.py install
