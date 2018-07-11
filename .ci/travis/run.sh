@@ -15,10 +15,6 @@ fi
 pyenv global 3.3.6 && pyenv rehash
 pyenv activate psutil
 
-# install psutil
-pip install psutil
-pip3 install psutil
-
 make clean
 python setup.py build
 python setup.py develop
