@@ -22,13 +22,14 @@ python setup.py develop
 python setup.py install
 
 
-##
-echo "===> CURRENT BUILD PATH <==="
+## Python and env debug
 echo $PWD
-
-echo "===> PYTHON SYS INFO <==="
+which python
 python -c 'import sys; print(sys.executable); print(sys.version)'
-
+update-alternatives --display python
+dpkg --get-selections | grep python
+id
+##
 
 # run tests (with coverage)
 if [[ $PYVER == '2.7' ]] && [[ "$(uname -s)" != 'Darwin' ]]; then
