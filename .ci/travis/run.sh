@@ -13,8 +13,6 @@ if [[ "$(uname -s)" == 'Darwin' ]]; then
     pyenv activate psutil
 fi
 
-# install psutil
-echo "+ CURRENT BUILD PATH == $(pwd)"
 
 make clean
 python setup.py build

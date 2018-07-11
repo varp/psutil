@@ -2,11 +2,11 @@ addons:
   artifacts: true
 sudo: false
 language: python
-cache: pip
 matrix:
     include:
         # Linux
         - python: 3.3
+          env: PYVER=py33
         # OSX
         - language: generic
           os: osx
