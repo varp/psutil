@@ -1,5 +1,5 @@
-sudo: enabled
-dist: trusty
+sudo: false
+#dist: trusty
 
 addons:
   artifacts: true
@@ -8,9 +8,10 @@ language: generic
 matrix:
   include:
     # Linux
-    - language: generic
-      os: linux
-      env: PYVER=py33
+#    - language: generic
+#      os: linux
+#      env: PYVER=py33
+    - python: 3.3
 
 
     # OSX
