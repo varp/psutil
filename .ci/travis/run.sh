@@ -26,7 +26,7 @@ python setup.py install
 echo $PWD
 which python
 python -c 'import sys; print(sys.executable); print(sys.version)'
-update-alternatives --display python
+update-alternatives --display python || true
 dpkg --get-selections | grep python
 id
 ##
