@@ -15,13 +15,17 @@ fi
 if [[ "$(uname -s)" == 'Linux' ]]; then
     sudo dpkg --add-architecture i386
     sudo apt-get update
-    sudo apt-get install -y git-core gcc-multilib make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev \
+    sudo apt-get install -y git-core make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev \
         libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev
 
     gcc -v
 
     if [[ $ARCH == "32" ]]; then
-        sudo apt-get install -y build-essential:i386
+        sudo apt-get install -y gcc-multilib  g++-multilib  libc6:i386  libstdc++6:i386  libbz2-dev:i386 \
+            libexpat1-dev:i386  ncurses-dev:i386 \
+            libssl-dev:i386 zlib1g-dev:i386 libbz2-dev:i386 libreadline-dev:i386 \
+            libsqlite3-dev:i386 wget:i386 curl:i386 llvm:i386 libncurses5-dev:i386 \
+            xz-utils:i386 tk-dev:i386 libxml2-dev:i386 libxmlsec1-dev:i386
         gcc -v
     fi
     sudo apt-get purge -y python-virtualenv
