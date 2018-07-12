@@ -25,7 +25,7 @@ if [[ $ARCH == "32" ]]; then
     eval "$(dpkg-architecture -ai386 -s)"
 
     # BASECFLAGS="-m32 -march=i686" LDFLAGS="-m32 -march=i686" CFLAGS="-m32 -march=i686" python setup.py build
-    TARGET=$(dpkg-architecture -ai386 -qDEB_TARGET_GNU_TYPE) python setup.py build
+    TARGET=$(dpkg-architecture -ai386 -qDEB_HOST_GNU_TYPE) python setup.py build
 else
     python setup.py build
 fi
