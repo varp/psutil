@@ -24,8 +24,7 @@ make clean
 if [[ $ARCH == "32" ]]; then
 #    eval "TARGET=$(dpkg-architecture -ai386 -qDEB_HOST_GNU_TYPE); export TARGET"
 
-    # BASECFLAGS="-m32 -march=i686" LDFLAGS="-m32 -march=i686" CFLAGS="-m32 -march=i686" python setup.py build
-    python setup.py build
+     BASECFLAGS="-m32 -march=i686" LDFLAGS="-m32 -march=i686" CFLAGS="-m32 -march=i686" python setup.py build
 else
     python setup.py build
 fi
