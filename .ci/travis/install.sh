@@ -17,20 +17,20 @@ if [[ "$(uname -s)" == 'Linux' ]]; then
 
     if [[ $ARCH == "32" ]]; then
         sudo dpkg --add-architecture i386
-        sudo apitiude update && sudo aptitude install gcc-multilib g++-multilib
+        sudo aptitude update && sudo aptitude install gcc-multilib g++-multilib
         sudo aptitude update && sudo aptitude install -y build-essential:i386 libc6:i386 libstdc++6:i386 libbz2-dev:i386 \
             libexpat1-dev:i386 ncurses-dev:i386 libssl-dev:i386 zlib1g-dev:i386 libbz2-dev:i386 libreadline-dev:i386 \
             libsqlite3-dev:i386 wget:i386 curl:i386 llvm:i386 libncurses5-dev:i386 \
             xz-utils:i386 tk8.6-dev:i386 libxml2-dev:i386 libxmlsec1-dev:i386 libnss3-dev:i386 libxft-dev:i386
-        CC="$(dpkg-architecture -ai386 -qDEB_HOST_GNU_TYPE)-gcc" dpkg-architecture -ai386 -s | tee -a ~/.bashrc
-        echo "TARGET=$(dpkg-architecture -ai386 -qDEB_HOST_GNU_TYPE); CC="$(dpkg-architecture -ai386 -qDEB_HOST_GNU_TYPE)-gcc"; export CC TARGET" | tee -a ~/.bashrc
+#        CC="$(dpkg-architecture -ai386 -qDEB_HOST_GNU_TYPE)-gcc" dpkg-architecture -ai386 -s | tee -a ~/.bashrc
+#        echo "TARGET=$(dpkg-architecture -ai386 -qDEB_HOST_GNU_TYPE); CC="$(dpkg-architecture -ai386 -qDEB_HOST_GNU_TYPE)-gcc"; export CC TARGET" | tee -a ~/.bashrc
     else
         sudo aptitude update && sudo aptitude install -y git-core make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev \
             libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev
     fi
 
-    CC="$(dpkg-architecture -ai386 -qDEB_HOST_GNU_TYPE)-gcc" dpkg-architecture -ai386 -c 'gcc -v'
-    CC="$(dpkg-architecture -aamd64 -qDEB_HOST_GNU_TYPE)-gcc" dpkg-architecture -aamd64 -c 'gcc -v'
+    dpkg-architecture -ai386 -c 'gcc -v'
+    dpkg-architecture -aamd64 -c 'gcc -v'
     gcc -v
 
     sudo aptitude purge -y python-virtualenv
