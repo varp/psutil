@@ -17,9 +17,8 @@ if [[ "$(uname -s)" == 'Linux' ]]; then
 
     if [[ $ARCH == "32" ]]; then
         sudo dpkg --add-architecture i386
-        sudo aptitude update && sudo aptitude install -y build-essential:i386 gcc-multilib  g++-multilib  libc6:i386  libstdc++6:i386  libbz2-dev:i386 \
-            libexpat1-dev:i386  ncurses-dev:i386 \
-            libssl-dev:i386 zlib1g-dev:i386 libbz2-dev:i386 libreadline-dev:i386 \
+        sudo aptitude update && sudo aptitude install -y build-essential:i386 gcc-multilib g++-multilib libc6:i386 libstdc++6:i386 libbz2-dev:i386 \
+            libexpat1-dev:i386 ncurses-dev:i386 libssl-dev:i386 zlib1g-dev:i386 libbz2-dev:i386 libreadline-dev:i386 \
             libsqlite3-dev:i386 wget:i386 curl:i386 llvm:i386 libncurses5-dev:i386 \
             xz-utils:i386 tk8.6-dev:i386 libxml2-dev:i386 libxmlsec1-dev:i386 libnss3-dev:i386 libxft-dev:i386
     else
