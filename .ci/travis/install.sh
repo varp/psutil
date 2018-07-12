@@ -17,7 +17,7 @@ if [[ "$(uname -s)" == 'Linux' ]]; then
 
     if [[ $ARCH == "32" ]]; then
         sudo dpkg --add-architecture i386
-        sudo aptitude update && sudo aptitude install -y wget curl llvm:i386 gcc-multilib:i386 g++-multilib:i386 gcc:i386 libc6:i386 libstdc++6:i386 libbz2-dev:i386 \
+        sudo aptitude update && sudo aptitude install -y wget curl llvm:i386 build-essential:i386 libc6:i386 libstdc++6:i386 libbz2-dev:i386 \
             libexpat1-dev:i386 ncurses-dev:i386 libssl-dev:i386 zlib1g-dev:i386 libreadline-dev:i386 \
             libsqlite3-dev:i386 xz-utils:i386 tk-dev:i386 libxml2-dev:i386 libxmlsec1-dev:i386
         echo "TARGET=$(dpkg-architecture -ai386 -qDEB_HOST_GNU_TYPE); CC="$(dpkg-architecture -ai386 -qDEB_HOST_GNU_TYPE)-gcc"; export CC TARGET" | tee -a ~/.bashrc
