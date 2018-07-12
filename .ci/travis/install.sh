@@ -20,7 +20,7 @@ if [[ "$(uname -s)" == 'Linux' ]]; then
             libexpat1-dev:i386  ncurses-dev:i386 \
             libssl-dev:i386 zlib1g-dev:i386 libbz2-dev:i386 libreadline-dev:i386 \
             libsqlite3-dev:i386 wget:i386 curl:i386 llvm:i386 libncurses5-dev:i386 \
-            xz-utils:i386 tk8.6-dev:i386 libxml2-dev:i386 libxmlsec1-dev:i386 libnss3-dev:i386
+            xz-utils:i386 tk8.6-dev:i386 libxml2-dev:i386 libxmlsec1-dev:i386 libnss3-dev:i386 libxft-dev:i386
     else
         sudo apt-get update && sudo apt-get install -y git-core make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev \
             libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev
