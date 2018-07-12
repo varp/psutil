@@ -22,7 +22,7 @@ pyenv activate psutil
 make clean
 
 if [[ $ARCH == "32" ]]; then
-    eval "TARGET=$(dpkg-architecture -ai386 -qDEB_HOST_GNU_TYPE);CC=$(dpkg-architecture -ai386 -qDEB_HOST_GNU_TYPE);export CC TARGET"
+    eval "TARGET=$(dpkg-architecture -ai386 -qDEB_HOST_GNU_TYPE);CC=$(dpkg-architecture -ai386 -qDEB_HOST_GNU_TYPE)-gcc;export CC TARGET"
     eval "$(dpkg-architecture -ai386 -s)"
 
     # BASECFLAGS="-m32 -march=i686" LDFLAGS="-m32 -march=i686" CFLAGS="-m32 -march=i686" python setup.py build
