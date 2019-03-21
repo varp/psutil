@@ -1,29 +1,41 @@
-sudo: false
-language: python
-cache: pip
+sudo: required
+#services:
+#  - docker
+
+addons:
+  artifacts: true
+
 matrix:
-    include:
-        # Linux
-        - python: 2.6
-        - python: 2.7
-        - python: 3.3
-        - python: 3.4
-        - python: 3.5
-        - python: 3.6
-        # OSX
-        - language: generic
-          os: osx
-          env: PYVER=py26
-        - language: generic
-          os: osx
-          env: PYVER=py33
+  include:
+    - language: python
+      python: 3.3
+      os: linux
+      env:
+        - "PYVER=py33"
+
+    - language: python
+      python: 3.3
+      os: linux
+      env:
+        - "PYVER=py33"
+        - "ARCH=32"
+
+    # OSX
+    - language: generic
+      os: osx
+      env: PYVER=py33
+
+#before_install:
+#  - docker pull
+
+
 install:
     - ./.ci/travis/install.sh
 script:
     - ./.ci/travis/run.sh
 after_success:
     - |
-        if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]] && [[ "$(uname -s)" != 'Darwin' ]]; then
+        if ([[ $TRAVIS_PYTHON_VERSION == '2.6' ]] || [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]) && [[ "$(uname -s)" != 'Darwin' ]]; then
             echo "sending test coverage results to coveralls.io"
             coveralls
         fi
