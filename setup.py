@@ -14,6 +14,11 @@ import sys
 import tempfile
 import warnings
 
+from distutils import sysconfig
+
+if sys.platform.startswith('linux'):
+    sysconfig.get_config_vars()['Py_ENABLE_SHARED'] = 0
+
 with warnings.catch_warnings():
     warnings.simplefilter("ignore")
     try:
@@ -23,11 +28,6 @@ with warnings.catch_warnings():
         setuptools = None
         from distutils.core import setup, Extension
 
-from distutils import sysconfig
-
-if sys.platform.startswith('linux'):
-    # Patch for #2555 to make wheels without libpython
-    sysconfig.get_config_vars()['Py_ENABLE_SHARED'] = 0
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 
