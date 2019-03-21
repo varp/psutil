@@ -22,7 +22,8 @@ with warnings.catch_warnings():
     except ImportError:
         setuptools = None
         from distutils.core import setup, Extension
-        from distutils import sysconfig
+
+from distutils import sysconfig
 
 if sys.platform.startswith('linux'):
     # Patch for #2555 to make wheels without libpython
