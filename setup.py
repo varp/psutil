@@ -22,6 +22,11 @@ with warnings.catch_warnings():
     except ImportError:
         setuptools = None
         from distutils.core import setup, Extension
+        from distutils import sysconfig
+
+if sys.platform.startswith('linux'):
+    # Patch for #2555 to make wheels without libpython
+    sysconfig.get_config_vars()['Py_ENABLE_SHARED'] = 0
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 
